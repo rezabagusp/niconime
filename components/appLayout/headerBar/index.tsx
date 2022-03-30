@@ -12,7 +12,7 @@ const HeaderBar = ({
 }: Props) => (
   <div
     className={cn(
-      'flex items-center justify-between h-14 max-w-7xl mx-auto',
+      'flex items-center justify-between h-14 max-w-5xl mx-auto',
       className,
     )}
   >

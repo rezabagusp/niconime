@@ -168,7 +168,7 @@ const HomeScreen = () => {
 
     return (
       <>
-        <div className="grid gap-4 grid-cols-3 md:grid-cols-4 md:gap-6 mt-10">
+        <div className="grid gap-4 grid-cols-3 md:grid-cols-4 md:gap-14 mt-10">
           {
             mediaList.map((media) => {
               const key = media.id;

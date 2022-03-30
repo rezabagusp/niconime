@@ -2,7 +2,7 @@ body {
   @apply text-neutral-100;
 }
 main {
- @apply max-w-7xl mx-auto min-h-screen;
+ @apply max-w-5xl mx-auto min-h-screen;
 }
 a {
   text-decoration: none;
