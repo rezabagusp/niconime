@@ -1,0 +1,19 @@
+.relationMediaCard {
+  @apply relative;
+}
+
+.relationMediaCard:hover .relationMediaCard-overlayTitle {
+  @apply block;
+}
+
+.relationMediaCard,
+.relationMediaCard img,
+.relationMediaCard-overlayTitle {
+  @apply rounded-lg;
+}
+
+.relationMediaCard-overlayTitle {
+  @apply bg-black bg-opacity-70;
+  @apply absolute top-0 left-0;
+  @apply hidden w-full h-full;
+}

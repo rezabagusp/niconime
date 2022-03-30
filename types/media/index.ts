@@ -1,3 +1,7 @@
+import type { CharacterRole, CharacterConnection } from '../character';
+import type { Staff } from '../staff';
+import type { PageInfo } from '../pageInfo';
+
 export type MediaTitle = {
   romaji: string,
   english: string,
@@ -27,10 +31,25 @@ export type MediaFormat = 'TV' | 'TV_SHORT' | 'MOVIE' | 'SPECIAL' | 'OVA' | 'ONA
 export type MediaStatus = 'FINISHED' | 'RELEASING' | 'NOT_YET_RELEASED'
   | 'CANCELLED' | 'HIATUS';
 
+export type MediaEdge = {
+  node: Media,
+  id: string,
+  characterName: string,
+  characterRole: CharacterRole,
+  voiceActors: Staff[],
+};
+
+export type MediaConnection = {
+  edges: MediaEdge[],
+  nodes: Media[],
+  pageInfo: PageInfo,
+};
+
 export type Media = {
   id: number,
   title: MediaTitle,
   coverImage: MediaCoverImage,
+  format: string,
   startDate: FuzzyDate,
   endDate: FuzzyDate,
   bannerImage: string,
@@ -54,4 +73,6 @@ export type Media = {
       },
     },
   },
+  relations: MediaConnection,
+  characters: CharacterConnection,
 };

@@ -1,4 +1,6 @@
 import { gql } from '@apollo/client';
+
+import { MEDIA_ATTRIBUTES } from '../graphql/fragment/media';
 import { getYearList } from '../lib/utils';
 import type { Option } from '../types/misc';
 
@@ -77,50 +79,11 @@ export const MEDIA_PAGE_QUERY = gql`
         sort: $sort,
         isAdult: $isAdult
       ) {
-        id
-        title {
-          userPreferred
-        }
-        coverImage {
-          extraLarge
-          large
-          color
-        }
-        startDate {
-          year
-          month
-          day
-        }
-        endDate {
-          year
-          month
-          day
-        }
-        bannerImage
-        season
-        seasonYear
-        description
-        type
-        format
-        status(version: 2)
-        episodes
-        duration
-        genres
-        isAdult
-        averageScore
-        popularity
-        studios(isMain: true) {
-          edges {
-            isMain
-            node {
-              id
-              name
-            }
-          }
-        }
+        ...mediaAttributes
       }
     }
   }
+  ${MEDIA_ATTRIBUTES}
 `;
 
 export const GENRES_QUERY = gql`
