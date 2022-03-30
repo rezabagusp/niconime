@@ -53,7 +53,7 @@ const TextInput = ({
   const inputProps = {
     id,
     ref: setRef,
-    className: 'text-base w-full border-none flex-1',
+    className: 'text-base w-full border-none flex-1 h-full',
     value,
     onChange,
     onKeyDown: type === 'number' ? filterInputNumberOnKeyDown : onKeyDown,
