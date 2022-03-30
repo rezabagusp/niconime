@@ -5,7 +5,7 @@ import type { Option } from '../types/misc';
 export const MEDIA_PAGE_QUERY = gql`
   query (
     $page: Int = 1,
-    $perPage: Int = 30,
+    $perPage: Int = 20,
     $id: Int,
     $type: MediaType,
     $isAdult: Boolean = false,

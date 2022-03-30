@@ -1,5 +1,5 @@
 .mediaAnimeCard a:hover h3  {
-  @apply text-primary-hover;
+  @apply opacity-70;
 }
 
 .mediaAnimeCard-image {

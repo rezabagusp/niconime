@@ -43,7 +43,7 @@ const MediaAnimeCard = ({
           height={180}
           alt={media.title.userPreferred}
         />
-        <h3 className="mt-2 text-xs md:text-sm text-neutral-60 line-clamp-2">
+        <h3 className="mt-2 text-xs md:text-sm line-clamp-2">
           {media.title.userPreferred}
         </h3>
       </LinkWrapper>
