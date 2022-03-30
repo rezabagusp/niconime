@@ -1,0 +1,27 @@
+.tabs {
+  @apply border-b border-neutral-40;
+}
+
+.tabs-listItem {
+  @apply text-neutral-60 text-sm;
+}
+
+.tabs-listItem:last-child {
+  margin-right: 0;
+}
+
+.tabs-listItem.is-active {
+  position: relative;
+  @apply text-neutral-100 font-bold;
+}
+
+.tabs-listItem.is-active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2.5px;
+  left: 0;
+  border-radius: 3px;
+  @apply bg-neutral-100;
+}

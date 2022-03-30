@@ -1,0 +1,38 @@
+.chip {
+  @apply rounded-3xl;
+  @apply px-2 py-1;
+  @apply inline-block;
+  @apply text-xs;
+}
+
+.chip--defaultOutline {
+  @apply border border-neutral-60 text-neutral-60;
+}
+
+.chip--primaryOutline {
+  @apply border border-primary-main text-primary-main;
+}
+
+.chip--primaryMain {
+  @apply text-neutral-30 bg-primary-main;
+}
+
+.chip--success {
+  @apply text-neutral-30 bg-success-pressed;
+}
+
+.chip--warning {
+  @apply text-neutral-30 bg-orange-main;
+}
+
+.chip--blues {
+  @apply text-neutral-30 bg-blue-main;
+}
+
+.chip--fail {
+  @apply text-neutral-30 bg-error;
+}
+
+.chip--grey {
+  @apply text-neutral-10 bg-neutral-80;
+}

@@ -1,0 +1,33 @@
+.toastBar {
+  transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  transform: translateY(280%);
+  -o-transform: translateY(280%);
+  -ms-transform: translateY(280%);
+  -webkit-transform: translateY(280%);
+  -moz-transform: translateY(280%);
+  max-width: 312px;
+  margin-bottom: 100px;
+  padding: 8px;
+  box-shadow: 0px 4px 8px rgba(23, 29, 75, 0.24);
+  @apply fixed z-50 left-0 right-0 top-[96px] mx-auto rounded;
+}
+
+.toastBar--hiding {
+  transform: translateY(-500%);
+  -o-transform: translateY(-500%);
+  -ms-transform: translateY(-500%);
+  -webkit-transform: translateY(-500%);
+  -moz-transform: translateY(-500%);
+}
+
+.toastBar--showing {
+  transform: translateY(0);
+  -o-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+}
