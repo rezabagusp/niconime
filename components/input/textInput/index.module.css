@@ -4,12 +4,13 @@
     border
     border-solid
     border-neutral-50
-    py-3
-    px-4
     rounded-lg
     text-neutral-100;
 }
 
+.textInput input {
+  @apply py-3 px-4 rounded-lg;
+}
 .is-error {
   @apply
     border-2

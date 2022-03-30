@@ -9,7 +9,7 @@ const AppLayout = ({
   children,
 }: Props) => (
   <div className="pt-14">
-    <div className="bg-neutral-10 fixed top-0 px-4 w-full max-w-md z-10 shadow-md shadow-neutral-30">
+    <div className="bg-neutral-10 fixed top-0 px-4 w-full z-10 shadow-md shadow-neutral-30">
       <HeaderBar />
     </div>
     <main className="pb-8 pt-4">{children}</main>

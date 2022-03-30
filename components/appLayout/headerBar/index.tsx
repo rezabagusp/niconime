@@ -1,7 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
 
-import Icon from '../../icon';
 import LinkWrapper from '../../link';
 
 interface Props {
@@ -13,12 +12,12 @@ const HeaderBar = ({
 }: Props) => (
   <div
     className={cn(
-      'flex items-center justify-between h-14',
+      'flex items-center justify-between h-14 max-w-5xl mx-auto',
       className,
     )}
   >
-    <LinkWrapper href="/">
-      <Icon icon="appLogo" width={138} height={40} />
+    <LinkWrapper className="hover:no-underline text-primary-pressed font-bold text-2xl block" href="/">
+      Niconime.Tv
     </LinkWrapper>
   </div>
 );
