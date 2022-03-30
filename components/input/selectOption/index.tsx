@@ -110,22 +110,7 @@ const SelectOption = ({
               </p>
             )
         }
-        <Icon
-          icon="chevron"
-          className={cn(
-            'rotate-90',
-            'ml-2',
-            { '!-rotate-90': showOptions },
-          )}
-          size={18}
-          color="neutral100"
-        />
       </div>
-      {
-        disabled && (
-          <div className="absolute top-0 left-0 w-full h-full opacity-30 bg-neutral-60 rounded-lg" />
-        )
-      }
     </div>
   );
 
@@ -138,6 +123,37 @@ const SelectOption = ({
       ref={menuNodeRef}
     >
       {renderSelectInputContent()}
+      <div className="absolute top-1/2 -translate-y-1/2 right-3">
+        <div className="flex items-center">
+          {
+            value && (
+              <Icon
+                icon="close"
+                size={16}
+                color="neutral100"
+                onClick={() => onChange(null)}
+                cursorPointer
+              />
+            )
+          }
+          <Icon
+            icon="chevron"
+            className={cn(
+              'rotate-90',
+              { '!-rotate-90': showOptions },
+              value && 'ml-1',
+            )}
+            size={18}
+            color="neutral100"
+            cursorPointer
+          />
+        </div>
+      </div>
+      {
+        disabled && (
+          <div className="absolute top-0 left-0 w-full h-full opacity-30 bg-neutral-60 rounded-lg" />
+        )
+      }
       {
         showOptions && (
           <div className="mt-1">
