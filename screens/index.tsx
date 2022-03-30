@@ -1,19 +1,131 @@
-import React from 'react';
+import React, { useState, ChangeEvent } from 'react';
+import { NetworkStatus, useQuery } from '@apollo/client';
+
+import ErrorState from '../components/error';
+import { TextInput, Label } from '../components/input';
+import { notify, ToastType } from '../components/toast';
+import { LoadingSpinnerScreen } from '../components/loading';
+import InifiniteLoader from '../components/infiniteLoader';
+import type { Media } from '../types/media';
+
+import { MEDIA_LISTING_QUERY } from './config';
 
 const HomeScreen = () => {
-  const title = 'Home Page';
+  const [search, setSearch] = useState<string>('');
+
+  const {
+    data,
+    loading,
+    error,
+    networkStatus,
+    fetchMore,
+    // refetch,
+  } = useQuery(MEDIA_LISTING_QUERY, {
+    notifyOnNetworkStatusChange: true,
+    fetchPolicy: 'cache-and-network',
+    nextFetchPolicy: 'cache-first',
+    onError: (err) => {
+      notify.show(err, ToastType.ERROR);
+    },
+  });
+
+  const handleFetchMore = ():void => {
+    fetchMore({
+      variables: {
+        page: data.Page.pageInfo.currentPage + 1,
+      },
+      updateQuery: (
+        previousResult: { [x: string]: any },
+        { fetchMoreResult }: { [x: string]: any },
+      ) => {
+        const prevMedia = previousResult?.Page?.media || [];
+        const newMedia = fetchMoreResult?.Page?.media || [];
+
+        return {
+          ...fetchMoreResult,
+          Page: {
+            ...fetchMoreResult.Page,
+            media: [
+              ...prevMedia,
+              ...newMedia,
+            ],
+          },
+        };
+      },
+    });
+  };
+
+  const renderInfiniteLoader = () => (
+    <InifiniteLoader
+      hasMoreData={!!data?.Page?.pageInfo?.hasNextPage}
+      loading={loading}
+      onIntersect={() => handleFetchMore()}
+    />
+  );
+
+  const renderAnimeList = () => {
+    const mediaList: Media[] = data.Page.media ?? [];
+
+    if (!mediaList.length) {
+      return (
+        <ErrorState text="No Anime found." />
+      );
+    }
+
+    return (
+      <div>
+        {
+          mediaList.map((media) => {
+            const key = media.id;
+
+            return (
+              <div key={key}>
+                {`card-${key}`}
+              </div>
+            );
+          })
+        }
+        {renderInfiniteLoader()}
+      </div>
+    );
+  };
+
+  const renderContents = () => {
+    if (error) {
+      return <ErrorState />;
+    }
+
+    if (loading && networkStatus !== NetworkStatus.fetchMore) {
+      return (
+        <LoadingSpinnerScreen />
+      );
+    }
+
+    return renderAnimeList();
+  };
 
   return (
     <div className="px-4">
-      <h1>{title}</h1>
-      <p className="text-primary-main line-clamp-2">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to make a
-        type specimen book.
-        It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged.
-      </p>
+      <h1 className="font-semibold text-xl">Browse Anime</h1>
+      {/* filter */}
+      <div className="mt-5">
+        <div>
+          <Label>Search</Label>
+          <TextInput
+            value={search}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
+          />
+        </div>
+        <div>
+          <Label>Search</Label>
+          <TextInput
+            value={search}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
+          />
+        </div>
+      </div>
+      {/* contents */}
+      {renderContents()}
     </div>
   );
 };
