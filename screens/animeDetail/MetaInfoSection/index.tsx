@@ -52,8 +52,8 @@ const MetaInfoSection = ({
     coverImage,
   } = media;
 
-  const formattedStartDate = formatDate(new Date(`${startDate.year}-${startDate.month}-${startDate.day}`), 'MM, dd yyyy');
-  const formattedEndDate = formatDate(new Date(`${endDate.year}-${endDate.month}-${endDate.day}`), 'MM, dd yyyy');
+  const formattedStartDate = formatDate(new Date(`${startDate.year}-${startDate.month}-${startDate.day}`), 'MMM, d yyyy');
+  const formattedEndDate = formatDate(new Date(`${endDate.year}-${endDate.month}-${endDate.day}`), 'MMM, d yyyy');
 
   return (
     <div className={cn(className)}>
