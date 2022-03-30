@@ -1,0 +1,19 @@
+.characterCard {
+  @apply relative;
+}
+
+.characterCard:hover .characterCard-overlayTitle {
+  @apply block;
+}
+
+.characterCard,
+.characterCard img,
+.characterCard-overlayTitle {
+  @apply rounded-lg;
+}
+
+.characterCard-overlayTitle {
+  @apply bg-black bg-opacity-70;
+  @apply absolute top-0 left-0;
+  @apply hidden w-full h-full;
+}
