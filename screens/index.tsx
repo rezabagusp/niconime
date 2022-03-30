@@ -54,7 +54,7 @@ const HomeScreen = () => {
     refetch({
       search: filter?.search?.length ? filter.search : undefined,
       genres: filter?.selectedGenre ? [filter.selectedGenre.value] : undefined,
-      year: filter?.selectedYear ? filter.selectedYear.value : undefined,
+      seasonYear: filter?.selectedYear ? filter.selectedYear.value : undefined,
       status: filter?.selectedAiringStatus
         ? filter?.selectedAiringStatus.value
         : undefined,
