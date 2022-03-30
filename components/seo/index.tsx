@@ -7,7 +7,7 @@ const DEFAULT_DESCRIPTION = 'One stop leading anime aggrator for everyone!';
 
 const DEFAULT_IMAGE_WIDTH = 1200;
 const DEFAULT_IMAGE_HEIGHT = 630;
-const DEFAULT_IMAGE_URL = `${APP_BASE_URL}/images/bangun_open_graph_image.png`;
+const DEFAULT_IMAGE_URL = `${APP_BASE_URL}/images/niconime-logo-banner.jpg`;
 const DEFAULT_URL = APP_BASE_URL;
 const DEFAULT_AUTHOR = 'Niconime  Editorial';
 const DEFAULT_OG_TYPE = 'website';
@@ -57,7 +57,7 @@ const SEO = ({
       <meta property="og:url" content={metaURL} />
       <meta property="og:type" content={metaOgType} />
       <meta property="og:locale" content="en_ID" />
-      <meta property="og:site_name" content="Bangun" />
+      <meta property="og:site_name" content="Niconime.Tv" />
       <meta property="twitter:image" content={metaImage} />
       <meta property="twitter:title" content={metaTitle} />
       <meta property="twitter:description" content={metaDesc} />

@@ -4,6 +4,7 @@ import RadioButton from './radioButton';
 import TextInput from './textInput';
 import SearchBoxInput from './searchBox';
 import TextArea from './textArea';
+import SelectOption from './selectOption';
 
 export {
   Checkbox,
@@ -12,4 +13,5 @@ export {
   TextInput,
   SearchBoxInput,
   TextArea,
+  SelectOption,
 };

@@ -1,0 +1,11 @@
+.mediaAnimeCard a:hover h3  {
+  @apply opacity-70;
+}
+
+.mediaAnimeCard-image {
+  @apply bg-neutral-20;
+}
+.mediaAnimeCard-image,
+.mediaAnimeCard-image img {
+  @apply rounded-lg;
+}

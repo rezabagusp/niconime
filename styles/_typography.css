@@ -1,7 +1,8 @@
-html,
 body {
-  @apply text-neutral-100 mx-auto min-h-screen;
-  box-shadow: 0px -8px 2px rgb(0 0 0 / 24%)
+  @apply text-neutral-100;
+}
+main {
+ @apply max-w-5xl mx-auto min-h-screen;
 }
 a {
   text-decoration: none;
