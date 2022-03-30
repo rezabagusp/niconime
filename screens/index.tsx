@@ -9,6 +9,7 @@ import { NetworkStatus, useQuery } from '@apollo/client';
 import { useDebouncedCallback } from 'use-debounce';
 
 import ErrorState from '../components/error';
+import MediaAnimeCard from '../components/card/mediaAnime';
 import { TextInput, Label, SelectOption } from '../components/input';
 import { notify, ToastType } from '../components/toast';
 import { LoadingSpinnerScreen } from '../components/loading';
@@ -149,6 +150,7 @@ const HomeScreen = () => {
 
   const renderInfiniteLoader = () => (
     <InifiniteLoader
+      className="py-10"
       hasMoreData={!!data?.Page?.pageInfo?.hasNextPage}
       loading={loading}
       onIntersect={() => handleFetchMore()}
@@ -165,20 +167,23 @@ const HomeScreen = () => {
     }
 
     return (
-      <div>
-        {
-          mediaList.map((media) => {
-            const key = media.id;
+      <>
+        <div className="grid gap-4 grid-cols-3 md:grid-cols-4 md:gap-6 mt-10">
+          {
+            mediaList.map((media) => {
+              const key = media.id;
 
-            return (
-              <div key={key}>
-                {`card-${key}`}
-              </div>
-            );
-          })
-        }
+              return (
+                <MediaAnimeCard
+                  key={key}
+                  media={media}
+                />
+              );
+            })
+          }
+        </div>
         {renderInfiniteLoader()}
-      </div>
+      </>
     );
   };
 
@@ -189,7 +194,7 @@ const HomeScreen = () => {
 
     if (loading && networkStatus !== NetworkStatus.fetchMore) {
       return (
-        <LoadingSpinnerScreen />
+        <LoadingSpinnerScreen className="py-10" />
       );
     }
 
